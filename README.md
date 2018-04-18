@@ -1,3 +1,5 @@
+![marvel-vs-dc](https://user-images.githubusercontent.com/904724/38923201-5649f35e-42fa-11e8-890a-30eec5a8e4ba.png)
+
 # nuxt-heroes
 
 > Marvel vs Avengers Heroes demo (for JS Heroes).

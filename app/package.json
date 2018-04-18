@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "cookies": "^0.7.1",
     "nuxt-edge": "^2.0.0-25400557.0aa6e9b"
   },
   "devDependencies": {

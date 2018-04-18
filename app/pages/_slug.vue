@@ -5,7 +5,8 @@
       <div class="Hero__Infos">
         <h1>{{ hero.name }}</h1>
         <p>Rank: #1</p>
-        <p>0 Fans</p>
+        <img :src="`/${hero.group}.svg`" :alt="hero.group"/>
+        <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
       </div>
     </div>
     <pre>{{ hero.fans }}</pre>

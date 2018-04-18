@@ -1,4 +1,5 @@
 process.env.HEROES_API = process.env.HEROES_API || 'http://localhost:8000'
+process.env.GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || '9ded8c99c49ab83cabe8'
 
 export default {
   mode: 'universal', // server-side rendering activated
@@ -35,6 +36,21 @@ export default {
   plugins: [
   ],
 
+   /*
+  ** Env
+  */
+  env: {
+    github: {
+      oauthUrl: `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`
+    }
+  },
+  /*
+  ** Server middleware
+  */
+  serverMiddleware: [
+    '~/server-middleware/github-callback',
+    '~/server-middleware/logout'
+  ],
   /*
   ** Nuxt.js modules
   */
@@ -47,8 +63,7 @@ export default {
   */
   axios: {
     // See https://axios.nuxtjs.org/options.html
-    proxy: true,
-    prefix: '/api'
+    proxy: true
   },
   proxy: {
     '/api': {

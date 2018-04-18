@@ -18,18 +18,19 @@
   "license": "MIT",
   "dependencies": {
     "@terrajs/mono": "latest",
+    "axios": "^0.18.0",
+    "cross-env": "^5.1.1",
     "mongodb-utils": "latest",
     "mono-doc": "latest",
     "mono-io": "latest",
     "mono-mongodb": "latest",
-    "mono-push": "latest",
-    "cross-env": "^5.1.1"
+    "mono-push": "latest"
   },
   "devDependencies": {
-    "mono-test-utils": "^1.2.3",
     "ava": "^0.25.0",
     "codecov": "^3.0.0",
     "eslint": "^4.13.1",
+    "mono-test-utils": "^1.2.3",
     "nyc": "^11.3.0"
   }
 }

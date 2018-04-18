@@ -1,19 +1,25 @@
 <template>
   <div>
     <div class="Hero">
-      <img :src="`/${hero.slug}.jpg`" :alt="hero.name"/>
+      <img :src="`/${hero.slug}.jpg`" :alt="hero.name" class="Hero__Img"/>
       <div class="Hero__Infos">
-        <h1>{{ hero.name }}</h1>
-        <p>Rank: #1</p>
+        <h3>{{ '#' + (rank + 1) + ' - ' +hero.name }}</h3>
         <img :src="`/${hero.group}.svg`" :alt="hero.group"/>
         <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
       </div>
     </div>
+    <ul class="Fans">
+      <li class="Fans__Item" v-for="fan in hero.fans" :key="fan.githubId">
+        <img :src="`https://avatars0.githubusercontent.com/u/${fan.githubId}?s=48`" :alt="fan.username"/> {{ fan.username }}
+      </li>
+    </ul>
     <pre>{{ hero.fans }}</pre>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   asyncData ({ store, error, params }) {
     const hero = store.state.heroes.heroes.find((h) => h.slug === params.slug)
@@ -22,6 +28,12 @@ export default {
     }
     return {
       hero
+    }
+  },
+  computed: {
+    ...mapState('heroes', ['heroes']),
+    rank () {
+      return this.heroes.findIndex((hero) => hero.slug === this.hero.slug)
     }
   }
 }
@@ -33,18 +45,40 @@ export default {
   padding: 20px;
   color: #fff;
   justify-content: center;
-  background-color: #333;
-  img {
+  border-bottom: 1px solid #333;
+  &__Img {
     height: 120px;
     margin-right: 20px;
     border-radius: 60px;
   }
   &__Infos {
-    h1 {
+    h3 {
       padding: 5px 0;
+    }
+    img {
+      height: 20px;
+      margin-top: 10px;
     }
     p {
       padding-top: 10px;
+    }
+  }
+}
+.Fans {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  &__Item {
+    padding: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 10px;
+      border-radius: 48px;
     }
   }
 }

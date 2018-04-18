@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1 class="Title">Heroes Ranking</h1>
-    <div class="Choose">
-      <nuxt-link to="/choose">Choose a hero</nuxt-link>
+    <div v-if="connected" class="Choose">
+      <nuxt-link to="/choose">{{ user.hero ? 'Change' : 'Choose' }} your hero</nuxt-link>
     </div>
     <div class="Ranking">
       <nuxt-link class="Ranking__Hero" v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug">
@@ -18,10 +18,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   computed: {
+    ...mapGetters('auth', ['connected']),
+    ...mapState('auth', ['user']),
     ...mapState('heroes', ['heroes'])
   }
 }

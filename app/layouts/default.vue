@@ -1,10 +1,19 @@
 <template>
   <div>
+    <header class="Header">
+      <nuxt-link to="/">
+        Home
+      </nuxt-link>
+      <img src="/logo.svg" alt="Logo">
+      <a href="#">
+        Login
+      </a>
+    </header>
     <nuxt/>
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html
 {
   font-family: "Impact", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -21,5 +30,22 @@ html
 {
   box-sizing: border-box;
   margin: 0;
+}
+.Header {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  a {
+    color: #aaa;
+    font-size: 18px;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+    }
+  }
+  img {
+    height: 24px;
+  }
 }
 </style>

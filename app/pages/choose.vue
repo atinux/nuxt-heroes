@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     select () {
-
+      this.$router.push('/')
     }
   }
 }

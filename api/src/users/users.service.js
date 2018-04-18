@@ -16,6 +16,10 @@ exports.getByUsername = async (username, fields) => {
 // See https://github.com/terrajs/mongodb-utils#update
 exports.update = collection.utils.update
 
+exports.count = async (query = {}) => {
+  return await collection.count(query)
+}
+
 exports.upsertByUsername = async (username, user) => {
 	user.updatedAt = new Date()
 

@@ -22,8 +22,6 @@ export const actions = {
     commit('SET_HEROES', heroes)
   },
   async syncHeroes({ commit }, socket) {
-    console.log('Sync heroes')
-
     this.$socket.on('hero:updated', (hero) => commit('SET_HERO_FANS', hero))
   }
 }

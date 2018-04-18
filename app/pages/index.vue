@@ -10,7 +10,7 @@
         <div class="Ranking__Hero__Infos">
           <h3>{{ '#' + (i + 1) + ' - ' +hero.name }}</h3>
           <img :src="`/${hero.group}.svg`" :alt="hero.group"/>
-          <p>{{ hero.fans }} Fan{{ hero.fans > 1 ? 's' : ''}}</p>
+          <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
         </div>
       </nuxt-link>
     </div>
@@ -21,7 +21,7 @@
 import { mapState } from 'vuex'
 export default {
   computed: {
-    ...mapState(['heroes']),
+    ...mapState('heroes', ['heroes']),
   }
 }
 </script>

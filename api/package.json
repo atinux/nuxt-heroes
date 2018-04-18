@@ -1,0 +1,35 @@
+{
+  "name": "heroes-api",
+  "version": "0.0.1",
+  "description": "API for Marvel vs DC heroes",
+  "private": true,
+  "scripts": {
+    "dev": "mono dev",
+    "start": "cross-env NODE_ENV=production mono",
+    "lint": "eslint src/ conf/ test/",
+    "test": "npm run lint && nyc ava --verbose --serial --fail-fast test/ && nyc report --reporter=html",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "nyc": {
+    "include": [
+      "src/"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@terrajs/mono": "latest",
+    "mongodb-utils": "latest",
+    "mono-doc": "latest",
+    "mono-io": "latest",
+    "mono-mongodb": "latest",
+    "mono-push": "latest",
+    "cross-env": "^5.1.1"
+  },
+  "devDependencies": {
+    "mono-test-utils": "^1.2.3",
+    "ava": "^0.25.0",
+    "codecov": "^3.0.0",
+    "eslint": "^4.13.1",
+    "nyc": "^11.3.0"
+  }
+}

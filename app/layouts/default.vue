@@ -1,19 +1,13 @@
 <template>
   <div>
-    <div>
-      <nuxt-link to="/choose">Choose your hero</nuxt-link>
-    </div>
     <nuxt/>
-    <div>
-      Credits: <a href="https://www.instagram.com/aniketjatav">aniketjatav</a>
-    </div>
   </div>
 </template>
 
 <style>
 html
 {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Impact", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

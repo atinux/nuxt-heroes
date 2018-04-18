@@ -21,11 +21,12 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['oauthUrl', 'connected'])
+    ...mapGetters(['oauthUrl']),
+    ...mapGetters('auth', ['connected'])
   },
   methods: {
     async logout() {
-      await this.$store.dispatch('logout')
+      await this.$store.dispatch('auth/logout')
       this.$router.push('/')
     }
   }

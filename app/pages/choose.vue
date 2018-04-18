@@ -21,7 +21,7 @@
 import { mapState } from 'vuex'
 export default {
   computed: {
-    ...mapState(['heroes']),
+    ...mapState('heroes', ['heroes']),
     filteredHeroes() {
       return this.heroes.filter((hero) => hero.group === this.group)
     }
@@ -32,8 +32,11 @@ export default {
     }
   },
   methods: {
-    selectHero(hero) {
-      // this.$router.push('/')
+    async selectHero(hero) {
+      const user = await this.$axios.$put('/api/user/hero', { hero: hero.slug })
+
+      this.$store.commit('auth/SET_USER', user)
+      this.$router.push('/')
     }
   }
 }

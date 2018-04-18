@@ -34,12 +34,15 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/auth',
+    { src: '~/plugins/sockets', ssr: false }
   ],
 
    /*
   ** Env
   */
   env: {
+    api: process.env.HEROES_API,
     github: {
       oauthUrl: `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`
     }

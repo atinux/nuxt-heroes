@@ -15,7 +15,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "cookies": "^0.7.1",
-    "nuxt-edge": "^2.0.0-25400557.0aa6e9b"
+    "nuxt-edge": "^2.0.0-25400557.0aa6e9b",
+    "socket.io-client": "^2.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

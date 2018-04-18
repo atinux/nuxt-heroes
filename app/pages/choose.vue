@@ -40,13 +40,6 @@ export default {
 </script>
 
 <style lang="scss">
-.Title {
-  text-align: center;
-  text-transform: uppercase;
-  padding: 40px 20px;
-  color: #fff;
-  font-size: 48px;
-}
 .Tabs {
   display: flex;
   &__Link {

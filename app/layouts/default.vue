@@ -36,7 +36,7 @@ export default {
 html
 {
   font-family: "Impact", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -66,5 +66,12 @@ html
   img {
     height: 24px;
   }
+}
+.Title {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 40px 20px;
+  color: #fff;
+  font-size: 48px;
 }
 </style>

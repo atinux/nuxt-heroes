@@ -5,13 +5,32 @@
         Home
       </nuxt-link>
       <img src="/logo.svg" alt="Logo">
-      <a href="#">
+      <a v-if="connected" href="#" @click.prevent="logout">
+        Logout
+      </a>
+      <a v-else :href="oauthUrl">
         Login
       </a>
     </header>
     <nuxt/>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['oauthUrl', 'connected'])
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('logout')
+      this.$router.push('/')
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 html

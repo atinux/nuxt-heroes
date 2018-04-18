@@ -2,45 +2,38 @@
   <div>
     <h1 class="Title">Choose your Hero</h1>
     <nav class="Tabs">
-      <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': !current}" href="#" @click.prevent="current = 0">
+      <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': group === 'dc' }" href="#" @click.prevent="group = 'dc'">
         <img src="dc.svg" alt="DC"/>
       </a>
-      <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': current}" href="#" @click.prevent="current = 1">
+      <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': group === 'marvel' }" href="#" @click.prevent="group = 'marvel'">
         <img src="marvel.svg" alt="Marvel"/>
       </a>
     </nav>
     <ul class="List">
-      <li class="List__Item" @click="select" v-for="(h, i) in heroes" :key="i" v-show="(current && i > 5) || (!current && i < 6)">
-        <img :src="`/${i}.jpg`" alt="hero"/>
+      <li class="List__Item" v-for="hero in filteredHeroes" @click="selectHero(hero)" :key="hero.slug">
+        <img :src="`/${hero.slug}.jpg`" :alt="hero.name"/>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState(['heroes']),
+    filteredHeroes() {
+      return this.heroes.filter((hero) => hero.group === this.group)
+    }
+  },
   data () {
     return {
-      current: 0,
-      heroes: [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
-      ]
+      group: 'dc'
     }
   },
   methods: {
-    select () {
-      this.$router.push('/')
+    selectHero(hero) {
+      // this.$router.push('/')
     }
   }
 }

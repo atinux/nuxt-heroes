@@ -50,14 +50,14 @@ export const actions = {
       cookies.set('jwt') // Remove jwt cookie
     }
   },
-  async fetchHeroes({ commit }, { app }) {
-    const heroes = await app.$axios.$get('/api/heroes')
+  async fetchHeroes({ commit }) {
+    const heroes = await this.$axios.$get('/api/heroes')
 
     commit('SET_HEROES', heroes)
   },
   async logout({ commit }) {
     commit('SET_JWT', null)
     commit('SET_USER', null)
-    await axios.get('/logout')
+    await this.$axios.get('/logout')
   }
 }

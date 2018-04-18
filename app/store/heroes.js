@@ -10,8 +10,8 @@ export const mutations = {
     const foundHero = state.heroes.find((h) => h.slug === hero.slug)
 
     if (!foundHero) return
-    state.fans = hero.fans
-    state.nbFans = hero.nbFans
+    foundHero.fans = hero.fans
+    foundHero.nbFans = hero.nbFans
   }
 }
 

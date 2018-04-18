@@ -1,19 +1,11 @@
 const { asyncMap } = require('@terrajs/mono/utils')
 
 const Heroes = require('./heroes.service')
-const Users = require('../users/users.service')
 
 exports.listHeroes = async function (req, res) {
-  let heroes = await Heroes.find({}).toArray()
+  let heroes = await Heroes.find({}, { fields: ['slug'] }).toArray()
 
-  heroes = await asyncMap(heroes, async (hero) => {
-    const fans = await Users.count({ hero: hero.slug })
-
-    return {
-      ...hero,
-      fans
-    }
-  })
+  heroes = await asyncMap(heroes, async (hero) => Heroes.getFullHeroBySlug(hero.slug))
 
   res.json(heroes)
 }

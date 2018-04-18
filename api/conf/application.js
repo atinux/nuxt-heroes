@@ -19,6 +19,10 @@ module.exports = {
 		// See https://terrajs.org/mono/configuration/log
 		log: {
 			level: 'verbose'
-		}
+    },
+    // See https://github.com/terrajs/mono-push
+    push: {
+      io: true
+    }
 	}
 }

@@ -22,7 +22,9 @@ Please run `npm start` with the following envs:
 NODE_ENV=production
 MONGO_URI=<YOUR_DB_URI>
 MONGO_DB=<YOUR_DB_NAME>
-MONO_JWT_SECRET=<YOUR_DB_NAME>
+MONO_JWT_SECRET=<YOUR_JWT_SECRET_STRING>
+GITHUB_CLIENT_ID=<YOUR_GH_CLIENT_ID>
+GITHUB_CLIENT_SECRET=<YOUR_GH_CLIENT_SECRET>
 ```
 
 ## App Setup
@@ -37,7 +39,13 @@ yarn dev # or npm run dev
 
 ### Deployment
 
-> Make sur to give the URL of your API with `API_URL` environement.
+
+Please run `npm start` with the following envs:
+
+```
+HEROES_API=<URL_OF_API>
+GITHUB_CLIENT_ID=<YOUR_OAUTH_GITHUB_CLIENT_ID>
+```
 
 ```bash
 npm run build

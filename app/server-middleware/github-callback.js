@@ -13,10 +13,7 @@ module.exports = {
     try {
       const { data } = await axios.get(`${process.env.HEROES_API}/github/auth?code=${req.query.code}`)
       // Add JWT cookie
-      cookies.set('jwt', data.token, {
-        domain: req.headers.host,
-        httpOnly: true
-      })
+      cookies.set('jwt', data.token, { httpOnly: true })
       // Redirect to home
       res.setHeader('Location', '/choose')
     } catch (err) {

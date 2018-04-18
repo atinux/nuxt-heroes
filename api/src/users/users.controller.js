@@ -1,5 +1,5 @@
 const { HttpError } = require('@terrajs/mono')
-const { send } = require('mono-push')
+const { pushAll } = require('mono-push')
 
 const Users = require('./users.service')
 const Heroes = require('../heroes/heroes.service')
@@ -24,10 +24,10 @@ exports.chooseHero = async (req, res) => {
 
   // Send push event to client apps
   hero = await Heroes.getFullHeroBySlug(updatedUser.hero)
-  send('hero:updated', {}, hero)
+  pushAll('hero:updated', hero)
   // If user switch the hero
   if (user.hero) {
     const oldHero = await Heroes.getFullHeroBySlug(user.hero)
-    send('hero:updated', {}, oldHero)
+    pushAll('hero:updated', oldHero)
   }
 }

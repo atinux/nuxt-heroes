@@ -24,7 +24,7 @@
     "mono-doc": "latest",
     "mono-io": "latest",
     "mono-mongodb": "latest",
-    "mono-push": "latest"
+    "mono-push": "^0.7.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",

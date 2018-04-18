@@ -4940,9 +4940,9 @@ mono-mongodb@latest:
     joi "^13.0.1"
     mongodb "^3.0.4"
 
-mono-push@latest:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/mono-push/-/mono-push-0.6.0.tgz#8fe05b707aa34e69f8e2b21e62e170e68302d5f9"
+mono-push@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/mono-push/-/mono-push-0.7.0.tgz#2cf197d0dcf823db7f2d2c8c5ab156050a4be562"
   dependencies:
     socketio-jwt "^4.5.0"
 

@@ -10,7 +10,7 @@
     </div>
     <ul class="Fans">
       <li class="Fans__Item" v-for="fan in hero.fans" :key="fan.githubId">
-        <img :src="`https://avatars0.githubusercontent.com/u/${fan.githubId}?s=48`" :alt="fan.username"/> {{ fan.username }}
+        <img :src="`${avatar(fan.githubId)}?s=48`" :srcset="`${avatar(fan.githubId)}?s=96 2x`" width="48" height="48" :alt="fan.username"/> {{ fan.username }}
       </li>
     </ul>
     <pre>{{ hero.fans }}</pre>
@@ -34,6 +34,11 @@ export default {
     ...mapState('heroes', ['heroes']),
     rank () {
       return this.heroes.findIndex((hero) => hero.slug === this.hero.slug)
+    }
+  },
+  methods: {
+    avatar(githubId) {
+      return `https://avatars0.githubusercontent.com/u/${githubId}`
     }
   }
 }

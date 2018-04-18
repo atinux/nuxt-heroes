@@ -18,11 +18,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   computed: {
-    heroes() {
-      return this.$store.state.heroes.heroes.slice().sort((h1, h2) => h2.nbFans - h1.nbFans)
-    }
+    ...mapState('heroes', ['heroes'])
   }
 }
 </script>

@@ -2,9 +2,11 @@ export const state = () => ({
   heroes: []
 })
 
+const sortHeroes = (heroes) => heroes.sort((h1, h2) => h2.nbFans - h1.nbFans)
+
 export const mutations = {
   SET_HEROES(state, heroes) {
-    state.heroes = heroes
+    state.heroes = sortHeroes(heroes)
   },
   SET_HERO_FANS(state, hero) {
     const foundHero = state.heroes.find((h) => h.slug === hero.slug)
@@ -12,6 +14,8 @@ export const mutations = {
     if (!foundHero) return
     foundHero.fans = hero.fans
     foundHero.nbFans = hero.nbFans
+    // Sort heroes
+    state.heroes = sortHeroes(state.heroes)
   }
 }
 

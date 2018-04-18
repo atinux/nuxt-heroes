@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Wonder Woman",
+    "slug": "wonder-woman",
+    "group": "dc"
+  },
+  {
+    "name": "Superman",
+    "slug": "superman",
+    "group": "dc"
+  },
+  {
+    "name": "Aquaman",
+    "slug": "aquaman",
+    "group": "dc"
+  },
+  {
+    "name": "Cyborg",
+    "slug": "cyborg",
+    "group": "dc"
+  },
+  {
+    "name": "Flash",
+    "slug": "flash",
+    "group": "dc"
+  },
+  {
+    "name": "Batman",
+    "slug": "batman",
+    "group": "dc"
+  },
+  {
+    "name": "Doctor Strange",
+    "slug": "doctor-strange",
+    "group": "marvel"
+  },
+  {
+    "name": "Iron Man",
+    "slug": "iron-man",
+    "group": "marvel"
+  },
+  {
+    "name": "Captain America",
+    "slug": "captain-america",
+    "group": "marvel"
+  },
+  {
+    "name": "Thor",
+    "slug": "thor",
+    "group": "marvel"
+  },
+  {
+    "name": "Hulk",
+    "slug": "hulk",
+    "group": "marvel"
+  },
+  {
+    "name": "Black Widow",
+    "slug": "black-widow",
+    "group": "marvel"
+  }
+]

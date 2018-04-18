@@ -20,7 +20,7 @@
     "@terrajs/mono": "latest",
     "axios": "^0.18.0",
     "cross-env": "^5.1.1",
-    "mongodb-utils": "latest",
+    "mongodb-utils": "^1.1.6",
     "mono-doc": "latest",
     "mono-io": "latest",
     "mono-mongodb": "latest",

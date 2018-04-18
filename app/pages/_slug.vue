@@ -1,18 +1,28 @@
 <template>
   <div>
     <div class="Hero">
-      <img :src="`/flash.jpg`" :alt="'flash'"/>
+      <img :src="`/${hero.slug}.jpg`" :alt="hero.name"/>
       <div class="Hero__Infos">
-        <h1>flash</h1>
+        <h1>{{ hero.name }}</h1>
         <p>Rank: #1</p>
         <p>0 Fans</p>
       </div>
     </div>
+    <pre>{{ hero.fans }}</pre>
   </div>
 </template>
 
 <script>
 export default {
+  asyncData ({ store, error, params }) {
+    const hero = store.state.heroes.heroes.find((h) => h.slug === params.slug)
+    if (!hero) {
+      return error({ statusCode: 404, message: 'Hero not found' })
+    }
+    return {
+      hero
+    }
+  }
 }
 </script>
 

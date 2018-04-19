@@ -6,7 +6,7 @@
 
 ## Setup
 
-> You need to run the api before running the Nuxt app
+> You need to run [nuxt-heroes-api](https://github.com/Atinux/nuxt-heroes-api) before running the Nuxt app
 
 ```bash
 yarn # or npm install
@@ -14,7 +14,6 @@ yarn dev # or npm run dev
 ```
 
 ### Deployment
-
 
 ```bash
 npm run build

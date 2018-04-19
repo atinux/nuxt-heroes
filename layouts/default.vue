@@ -4,7 +4,7 @@
       <nuxt-link to="/">
         Home
       </nuxt-link>
-      <nuxt-link to="/"><img src="http://res.cloudinary.com/wikeo/image/upload/c_scale,h_24/v1524136791/logo.svg" alt="Logo"></nuxt-link>
+      <nuxt-link to="/"><img src="https://res.cloudinary.com/wikeo/image/upload/c_scale,h_24/v1524136791/logo.svg" alt="Logo"></nuxt-link>
       <a v-if="connected" href="#" @click.prevent="logout">
         Logout
       </a>

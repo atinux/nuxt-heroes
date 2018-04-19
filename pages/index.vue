@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="Ranking">
+    <transition-group class="Ranking" tag="div" name="hero-item">
       <nuxt-link class="Ranking__Hero" v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug">
         <img :src="`/${hero.slug}.jpg`" :alt="hero.name" class="Ranking__Hero__Img"/>
         <div class="Ranking__Hero__Infos">
@@ -23,7 +23,7 @@
           <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
         </div>
       </nuxt-link>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -77,6 +77,7 @@ export default {
       overflow: hidden;
       align-items: center;
       background-color: #266BB0;
+      transition: width 0.5s linear;
       img {
         height: 24px;
         margin-left: 20px;
@@ -88,12 +89,16 @@ export default {
       align-items: center;
       justify-content: flex-end;
       background-color: #941112;
+      transition: width 0.5s linear;
       img {
         height: 24px;
         margin-right: 20px;
       }
     }
   }
+}
+.hero-item-move {
+  transition: transform 1s;
 }
 .Ranking {
   display: flex;

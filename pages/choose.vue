@@ -19,7 +19,11 @@
 
 <script>
 import { mapState } from 'vuex'
+
 export default {
+  head: {
+    title: 'Choose your hero'
+  },
   middleware({ store, redirect }) {
     if (!store.getters['auth/connected']) return redirect('/')
   },

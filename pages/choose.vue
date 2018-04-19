@@ -40,10 +40,10 @@ export default {
   },
   methods: {
     async selectHero(hero) {
+      this.$router.push('/')
       const user = await this.$axios.$put('/api/user/hero', { hero: hero.slug })
 
       this.$store.commit('auth/SET_USER', user)
-      this.$router.push('/')
     }
   }
 }

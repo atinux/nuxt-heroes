@@ -20,6 +20,9 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  middleware({ store, redirect }) {
+    if (!store.getters['auth/connected']) return redirect('/')
+  },
   computed: {
     ...mapState('heroes', ['heroes']),
     filteredHeroes() {

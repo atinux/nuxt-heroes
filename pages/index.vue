@@ -4,12 +4,14 @@
     <div v-if="connected" class="Choose">
       <nuxt-link to="/choose">{{ user.hero ? 'Change' : 'Choose' }} your hero</nuxt-link>
     </div>
-    <div>
-      <span style="float: left;">Marvel</span>
-      <span style="float: right;">DC</span>
-      <div style="width: 100%;height: 10px;position: relative;">
-        <div style="width: 45%;background: red;position: absolute;height: 10px;"></div>
-        <div style="width: 55%;background: blue;position: absolute;height: 10px;left:45%;"></div>
+    <div class="Groups">
+      <div class="Groups__Stats">
+        <div class="Groups__Stats--DC" :style="stats.dc">
+          <img src="dc.svg" alt="DC"/>
+        </div>
+        <div class="Groups__Stats--Marvel" :style="stats.marvel">
+          <img src="marvel.svg" alt="Marvel"/>
+        </div>
       </div>
     </div>
     <div class="Ranking">
@@ -32,7 +34,19 @@ export default {
   computed: {
     ...mapGetters('auth', ['connected']),
     ...mapState('auth', ['user']),
-    ...mapState('heroes', ['heroes'])
+    ...mapState('heroes', ['heroes']),
+    stats () {
+      let s = { dc: 0, marvel: 0 }
+      this.heroes.forEach(hero => { s[hero.group] += hero.nbFans })
+      return {
+        dc: {
+          width: (s.dc / (s.dc + s.marvel) * 100) + '%'
+        },
+        marvel: {
+          width: (s.marvel / (s.dc + s.marvel) * 100) + '%'
+        }
+      }
+    }
   }
 }
 </script>
@@ -49,6 +63,37 @@ export default {
     &:hover {
       color: #fff;
       border-color: #fff;
+    }
+  }
+}
+.Groups {
+  padding: 20px;
+  &__Stats {
+    height: 48px;
+    display: flex;
+    align-items: stretch;
+    &--DC {
+      display: flex;
+      overflow: hidden;
+      align-content: center;
+      background-color: #266BB0;
+      img {
+        height: 24px;
+        float: left;
+        margin-left: 20px;
+      }
+    }
+    &--Marvel {
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      justify-content: flex-end;
+      background-color: #941112;
+      img {
+        height: 24px;
+        float: right;
+        margin-right: 20px;
+      }
     }
   }
 }

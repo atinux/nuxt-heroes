@@ -4,7 +4,7 @@
       <nuxt-link to="/">
         Home
       </nuxt-link>
-      <img src="/logo.svg" alt="Logo">
+      <nuxt-link to="/"><img src="/logo.svg" alt="Logo"></nuxt-link>
       <a v-if="connected" href="#" @click.prevent="logout">
         Logout
       </a>
@@ -59,6 +59,7 @@ html
   a {
     color: #aaa;
     font-size: 18px;
+    height: 24px;
     text-decoration: none;
     &:hover {
       color: #fff;

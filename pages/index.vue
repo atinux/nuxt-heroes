@@ -75,11 +75,10 @@ export default {
     &--DC {
       display: flex;
       overflow: hidden;
-      align-content: center;
+      align-items: center;
       background-color: #266BB0;
       img {
         height: 24px;
-        float: left;
         margin-left: 20px;
       }
     }
@@ -91,7 +90,6 @@ export default {
       background-color: #941112;
       img {
         height: 24px;
-        float: right;
         margin-right: 20px;
       }
     }

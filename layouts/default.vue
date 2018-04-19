@@ -13,6 +13,9 @@
       </a>
     </header>
     <nuxt/>
+    <footer class="Footer">
+      <a href="#">Credit</a>
+    </footer>
   </div>
 </template>
 
@@ -68,6 +71,12 @@ html
   img {
     height: 24px;
   }
+}
+.Footer {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  border-top: 1px solid #333;
 }
 .Title {
   text-align: center;

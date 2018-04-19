@@ -15,7 +15,6 @@
         </a>
       </li>
     </ul>
-    <pre>{{ hero.fans }}</pre>
   </div>
 </template>
 

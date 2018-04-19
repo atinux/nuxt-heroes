@@ -38,12 +38,15 @@ export default {
     stats () {
       let s = { dc: 0, marvel: 0 }
       this.heroes.forEach(hero => { s[hero.group] += hero.nbFans })
-      return {
-        dc: {
-          width: (s.dc / (s.dc + s.marvel) * 100) + '%'
-        },
-        marvel: {
-          width: (s.marvel / (s.dc + s.marvel) * 100) + '%'
+      if (s.dc + s.marvel) {
+        return {
+          dc: { width: (s.dc / (s.dc + s.marvel) * 100) + '%' },
+          marvel: { width: (s.marvel / (s.dc + s.marvel) * 100) + '%' }
+        }
+      } else {
+        return {
+          dc: { width: '50%' },
+          marvel: { width: '50%' }
         }
       }
     }

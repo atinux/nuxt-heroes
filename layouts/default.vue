@@ -14,7 +14,7 @@
     </header>
     <nuxt/>
     <footer class="Footer">
-      <a href="#">Credit</a>
+      Credits: <a href="#"> Images</a>
     </footer>
   </div>
 </template>
@@ -75,8 +75,17 @@ html
 .Footer {
   display: flex;
   padding: 20px;
-  justify-content: space-between;
+  color: #fff;
+  font-size: 16px;
+  justify-content: center;
   border-top: 1px solid #333;
+  a {
+    text-decoration: none;
+    color: #aaa;
+    &:hover {
+      color: #fff;
+    }
+  }
 }
 .Title {
   text-align: center;

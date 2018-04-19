@@ -23,6 +23,11 @@
 import { mapState } from 'vuex'
 
 export default {
+  head() {
+    return {
+      title: `Heroes: ${this.hero.name}`
+    }
+  },
   asyncData ({ store, error, params }) {
     const hero = store.state.heroes.heroes.find((h) => h.slug === params.slug)
     if (!hero) {

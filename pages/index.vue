@@ -15,7 +15,7 @@
       </div>
     </div>
     <transition-group class="Ranking" tag="div" name="hero-item">
-      <nuxt-link class="Ranking__Hero" v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug">
+      <nuxt-link v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug" class="Ranking__Hero" :class="{'Ranking__Hero--choosen': user.hero === hero.slug}">
         <img :src="`/${hero.slug}.jpg`" :alt="hero.name" class="Ranking__Hero__Img"/>
         <div class="Ranking__Hero__Infos">
           <h3>{{ '#' + (i + 1) + ' - ' +hero.name }}</h3>
@@ -70,7 +70,7 @@ export default {
   }
 }
 .Groups {
-  padding: 20px;
+  padding: 20px 10px;
   &__Stats {
     height: 48px;
     display: flex;
@@ -119,6 +119,13 @@ export default {
     }
     @media (min-width: 1200px) {
       width: 33%;
+    }
+    &--choosen {
+      color: #fff;
+      background-color: #333;
+      img {
+        opacity: 1;
+      }
     }
     &__Img {
       height: 128px;

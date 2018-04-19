@@ -10,7 +10,9 @@
     </div>
     <ul class="Fans">
       <li class="Fans__Item" v-for="fan in hero.fans" :key="fan.githubId">
-        <img :src="`${avatar(fan.githubId)}?s=48`" :srcset="`${avatar(fan.githubId)}?s=96 2x`" width="48" height="48" :alt="fan.username"/> {{ fan.username }}
+        <a :href="`https://github.com/${fan.username}`" target="_blank" rel="noopener">
+          <img :src="`${avatar(fan.githubId)}?s=48`" :srcset="`${avatar(fan.githubId)}?s=96 2x`" width="48" height="48" :alt="fan.username"/> {{ fan.username }}
+        </a>
       </li>
     </ul>
     <pre>{{ hero.fans }}</pre>
@@ -77,10 +79,13 @@ export default {
   flex-wrap: wrap;
   justify-content: space-evenly;
   &__Item {
-    padding: 10px;
-    color: #fff;
-    display: flex;
-    align-items: center;
+    a {
+      color: #fff;
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      text-decoration: none;
+    }
     img {
       margin-right: 10px;
       border-radius: 48px;

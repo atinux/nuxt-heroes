@@ -8,7 +8,7 @@
         <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
       </div>
     </div>
-    <ul class="Fans">
+    <ul class="Fans" v-if="hero.nbFans > 0">
       <li class="Fans__Item" v-for="fan in hero.fans" :key="fan.githubId">
         <a :href="`https://github.com/${fan.username}`" target="_blank" rel="noopener">
           <img :src="`${avatar(fan.githubId)}?s=48`" :srcset="`${avatar(fan.githubId)}?s=96 2x`" width="48" height="48" :alt="fan.username"/> {{ fan.username }}

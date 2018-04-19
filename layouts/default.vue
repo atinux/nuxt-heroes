@@ -14,7 +14,11 @@
     </header>
     <nuxt/>
     <footer class="Footer">
-      Credits: <a href="#"> Images</a>
+      Credits:
+      <a href="https://www.instagram.com/aniketjatav/" target="_blank" rel="noopener">Images</a>
+    </footer>
+    <footer class="Footer">
+      <a href="https://github.com/Atinux/nuxt-heroes" target="_blank" rel="noopener">Source code</a>
     </footer>
   </div>
 </template>
@@ -82,6 +86,7 @@ html
   a {
     text-decoration: none;
     color: #aaa;
+    margin-left: 5px;
     &:hover {
       color: #fff;
     }

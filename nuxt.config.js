@@ -8,11 +8,13 @@ export default {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: { lang: 'en' },
     title: 'Heroes: Marvel vs DC',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Marvel vs DC Heroes demo' }
+      { hid: 'description', name: 'description', content: 'Marvel vs DC Heroes demo' },
+      { 'http-equiv': 'Content-Language', content: 'en' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

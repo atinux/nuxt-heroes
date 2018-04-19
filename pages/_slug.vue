@@ -4,7 +4,7 @@
       <img :src="cloudinary(hero.image, 120)" :alt="hero.name" class="Hero__Img"/>
       <div class="Hero__Infos">
         <h3>{{ '#' + (rank + 1) + ' - ' +hero.name }}</h3>
-        <img :src="cloudinary(hero.group === 'dc' ? 'v1524136834/dc.svg' : 'v1524136836/marvel.svg', 20)" :alt="hero.group"/>
+        <img :src="(hero.group === 'dc' ? '/dc.svg' : '/marvel.svg')" :alt="hero.group"/>
         <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
       </div>
     </div>
@@ -47,7 +47,7 @@ export default {
       return `https://avatars0.githubusercontent.com/u/${githubId}`
     },
     cloudinary (slug, size = 128) {
-      return `https://res.cloudinary.com/wikeo/image/upload/c_scale,w_${size}/${slug}`
+      return `https://res.cloudinary.com/wikeo/image/upload/${slug}`
     }
   }
 }

@@ -46,7 +46,7 @@ export default {
       this.$store.commit('auth/SET_USER', user)
     },
     cloudinary (slug, size = 128) {
-      return `https://res.cloudinary.com/wikeo/image/upload/c_scale,w_${size}/${slug}`
+      return `https://res.cloudinary.com/wikeo/image/upload/${slug}`
     }
   }
 }

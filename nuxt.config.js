@@ -14,7 +14,9 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Marvel vs DC Heroes demo' },
-      { 'http-equiv': 'Content-Language', content: 'en' }
+      { 'http-equiv': 'Content-Language', content: 'en' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: 'https://user-images.githubusercontent.com/904724/38987861-88525af8-43d1-11e8-84eb-cb69962594e2.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

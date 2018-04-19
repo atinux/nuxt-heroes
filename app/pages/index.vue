@@ -4,6 +4,14 @@
     <div v-if="connected" class="Choose">
       <nuxt-link to="/choose">{{ user.hero ? 'Change' : 'Choose' }} your hero</nuxt-link>
     </div>
+    <div>
+      <span style="float: left;">Marvel</span>
+      <span style="float: right;">DC</span>
+      <div style="width: 100%;height: 10px;position: relative;">
+        <div style="width: 45%;background: red;position: absolute;height: 10px;"></div>
+        <div style="width: 55%;background: blue;position: absolute;height: 10px;left:45%;"></div>
+      </div>
+    </div>
     <div class="Ranking">
       <nuxt-link class="Ranking__Hero" v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug">
         <img :src="`/${hero.slug}.jpg`" :alt="hero.name" class="Ranking__Hero__Img"/>

@@ -3,15 +3,15 @@
     <h1 class="Title">Choose your Hero</h1>
     <nav class="Tabs">
       <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': group === 'dc' }" href="#" @click.prevent="group = 'dc'">
-        <img src="dc.svg" alt="DC"/>
+        <img :src="cloudinary('v1524136834/dc.svg', 48)" alt="DC"/>
       </a>
       <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': group === 'marvel' }" href="#" @click.prevent="group = 'marvel'">
-        <img src="marvel.svg" alt="Marvel"/>
+        <img :src="cloudinary('v1524136836/marvel.svg', 48)" alt="Marvel"/>
       </a>
     </nav>
     <ul class="List">
       <li class="List__Item" v-for="hero in filteredHeroes" @click="selectHero(hero)" :key="hero.slug">
-        <img :src="`/${hero.slug}.jpg`" :alt="hero.name"/>
+        <img :src="cloudinary(hero.image, 512)" :alt="hero.name"/>
       </li>
     </ul>
   </div>
@@ -44,6 +44,9 @@ export default {
       const user = await this.$axios.$put('/api/user/hero', { hero: hero.slug })
 
       this.$store.commit('auth/SET_USER', user)
+    },
+    cloudinary (slug, size = 128) {
+      return `https://res.cloudinary.com/wikeo/image/upload/c_scale,w_${size}/${slug}`
     }
   }
 }

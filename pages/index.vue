@@ -16,7 +16,7 @@
     </div>
     <transition-group class="Ranking" tag="div" name="hero-item">
       <nuxt-link v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug" class="Ranking__Hero" :class="{'Ranking__Hero--choosen': user && user.hero === hero.slug}">
-        <img :src="`${hero.slug}.jpg`" :alt="hero.name" class="Ranking__Hero__Img"/>
+        <img :src="cloudinary(hero.image, 128)" :alt="hero.name" class="Ranking__Hero__Img"/>
         <div class="Ranking__Hero__Infos">
           <h3>{{ '#' + (i + 1) + ' - ' +hero.name }}</h3>
           <img :src="cloudinary(hero.group === 'dc' ? 'v1524136834/dc.svg' : 'v1524136836/marvel.svg', 20)" :alt="hero.group"/>

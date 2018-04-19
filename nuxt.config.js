@@ -66,13 +66,14 @@ export default {
   */
   axios: {
     // See https://axios.nuxtjs.org/options.html
-    proxy: true
+    proxy: true,
+    proxyHeaders: false
   },
   proxy: {
     '/api': {
       target: process.env.HEROES_API,
       pathRewrite: {
-        '^/api/': ''
+        '^/api/': '/'
       }
     }
   },

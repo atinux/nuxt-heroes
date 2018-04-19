@@ -7,19 +7,19 @@
     <div class="Groups">
       <div class="Groups__Stats">
         <div class="Groups__Stats--DC" :style="stats.dc">
-          <img src="dc.svg" alt="DC"/>
+          <img :src="cloudinary('v1524136834/dc.svg', 24)" alt="DC"/>
         </div>
         <div class="Groups__Stats--Marvel" :style="stats.marvel">
-          <img src="marvel.svg" alt="Marvel"/>
+          <img :src="cloudinary('v1524136836/marvel.svg', 24)" alt="Marvel"/>
         </div>
       </div>
     </div>
     <transition-group class="Ranking" tag="div" name="hero-item">
       <nuxt-link v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug" class="Ranking__Hero" :class="{'Ranking__Hero--choosen': user && user.hero === hero.slug}">
-        <img :src="`/${hero.slug}.jpg`" :alt="hero.name" class="Ranking__Hero__Img"/>
+        <img :src="`${hero.slug}.jpg`" :alt="hero.name" class="Ranking__Hero__Img"/>
         <div class="Ranking__Hero__Infos">
           <h3>{{ '#' + (i + 1) + ' - ' +hero.name }}</h3>
-          <img :src="`/${hero.group}.svg`" :alt="hero.group"/>
+          <img :src="cloudinary(hero.group === 'dc' ? 'v1524136834/dc.svg' : 'v1524136836/marvel.svg', 20)" :alt="hero.group"/>
           <p>{{ hero.nbFans }} Fan{{ hero.nbFans > 1 ? 's' : ''}}</p>
         </div>
       </nuxt-link>
@@ -49,6 +49,11 @@ export default {
           marvel: { width: '50%' }
         }
       }
+    }
+  },
+  methods: {
+    cloudinary (slug, size = 128) {
+      return `http://res.cloudinary.com/wikeo/image/upload/c_scale,w_${size}/${slug}`
     }
   }
 }

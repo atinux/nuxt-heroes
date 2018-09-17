@@ -4,16 +4,7 @@
     <div v-if="connected" class="Choose">
       <nuxt-link to="/choose">{{ user.hero ? 'Change' : 'Choose' }} your hero</nuxt-link>
     </div>
-    <div class="Groups">
-      <div class="Groups__Stats">
-        <div class="Groups__Stats--DC" :style="stats.dc">
-          <img :src="cloudinary('v1524136834/dc.svg', 24)" alt="DC"/>
-        </div>
-        <div class="Groups__Stats--Marvel" :style="stats.marvel">
-          <img :src="cloudinary('v1524136836/marvel.svg', 24)" alt="Marvel"/>
-        </div>
-      </div>
-    </div>
+    <h-statsbar :heroes="heroes"/>
     <transition-group class="Ranking" tag="div" name="hero-item">
       <nuxt-link v-for="(hero, i) in heroes" :key="hero.slug" :to="hero.slug" class="Ranking__Hero" :class="{'Ranking__Hero--choosen': user && user.hero === hero.slug}">
         <img :src="cloudinary(hero.image, 128)" :alt="hero.name" class="Ranking__Hero__Img"/>
@@ -28,28 +19,18 @@
 </template>
 
 <script>
+import hStatsbar from '@/components/statsbar'
+
 import { mapState, mapGetters } from 'vuex'
 
 export default {
+  components: {
+    hStatsbar
+  },
   computed: {
     ...mapGetters('auth', ['connected']),
     ...mapState('auth', ['user']),
-    ...mapState('heroes', ['heroes']),
-    stats () {
-      let s = { dc: 0, marvel: 0 }
-      this.heroes.forEach(hero => { s[hero.group] += hero.nbFans })
-      if (s.dc + s.marvel) {
-        return {
-          dc: { width: (s.dc / (s.dc + s.marvel) * 100) + '%' },
-          marvel: { width: (s.marvel / (s.dc + s.marvel) * 100) + '%' }
-        }
-      } else {
-        return {
-          dc: { width: '50%' },
-          marvel: { width: '50%' }
-        }
-      }
-    }
+    ...mapState('heroes', ['heroes'])
   },
   methods: {
     cloudinary (slug, size = 128) {
@@ -71,37 +52,6 @@ export default {
     &:hover {
       color: #fff;
       border-color: #fff;
-    }
-  }
-}
-.Groups {
-  padding: 20px 10px;
-  &__Stats {
-    height: 48px;
-    display: flex;
-    align-items: stretch;
-    &--DC {
-      display: flex;
-      overflow: hidden;
-      align-items: center;
-      background-color: #266BB0;
-      transition: width 0.5s linear;
-      img {
-        height: 24px;
-        margin-left: 20px;
-      }
-    }
-    &--Marvel {
-      display: flex;
-      overflow: hidden;
-      align-items: center;
-      justify-content: flex-end;
-      background-color: #941112;
-      transition: width 0.5s linear;
-      img {
-        height: 24px;
-        margin-right: 20px;
-      }
     }
   }
 }

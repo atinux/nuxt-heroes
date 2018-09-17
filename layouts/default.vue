@@ -1,41 +1,19 @@
 <template>
   <div>
-    <header class="Header">
-      <nuxt-link to="/">
-        Home
-      </nuxt-link>
-      <nuxt-link to="/"><img src="https://res.cloudinary.com/wikeo/image/upload/c_scale,h_24/v1524136791/logo.svg" alt="Logo"></nuxt-link>
-      <a v-if="connected" href="#" @click.prevent="logout">
-        Logout
-      </a>
-      <a v-else :href="oauthUrl">
-        Login
-      </a>
-    </header>
+    <h-header/>
     <nuxt/>
-    <footer class="Footer">
-      Credits:
-      <a href="https://www.instagram.com/aniketjatav/" target="_blank" rel="noopener">Images</a>
-    </footer>
-    <footer class="Footer">
-      <a href="https://github.com/Atinux/nuxt-heroes" target="_blank" rel="noopener">Source code</a>
-    </footer>
+    <h-footer/>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import hHeader from '@/components/header'
+import hFooter from '@/components/footer'
 
 export default {
-  computed: {
-    ...mapGetters(['oauthUrl']),
-    ...mapGetters('auth', ['connected'])
-  },
-  methods: {
-    async logout() {
-      await this.$store.dispatch('auth/logout')
-      this.$router.push('/')
-    }
+  components: {
+    hHeader,
+    hFooter
   }
 }
 </script>
@@ -57,40 +35,6 @@ html
 {
   box-sizing: border-box;
   margin: 0;
-}
-.Header {
-  display: flex;
-  padding: 20px;
-  justify-content: space-between;
-  border-bottom: 1px solid #333;
-  a {
-    color: #aaa;
-    font-size: 18px;
-    height: 24px;
-    text-decoration: none;
-    &:hover {
-      color: #fff;
-    }
-  }
-  img {
-    height: 24px;
-  }
-}
-.Footer {
-  display: flex;
-  padding: 20px;
-  color: #fff;
-  font-size: 16px;
-  justify-content: center;
-  border-top: 1px solid #333;
-  a {
-    text-decoration: none;
-    color: #aaa;
-    margin-left: 5px;
-    &:hover {
-      color: #fff;
-    }
-  }
 }
 .Title {
   text-align: center;

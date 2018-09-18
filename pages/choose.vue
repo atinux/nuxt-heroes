@@ -1,14 +1,15 @@
 <template>
   <div>
     <h1 class="Title">Choose your Hero</h1>
-    <nav class="Tabs">
+    <h-tabs :group.sync="group"/>
+    <!-- <nav class="Tabs">
       <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': group === 'dc' }" href="#" @click.prevent="group = 'dc'">
         <img :src="cloudinary('v1524136834/dc.svg', 48)" alt="DC"/>
       </a>
       <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': group === 'marvel' }" href="#" @click.prevent="group = 'marvel'">
         <img :src="cloudinary('v1524136836/marvel.svg', 48)" alt="Marvel"/>
       </a>
-    </nav>
+    </nav> -->
     <ul class="List">
       <li class="List__Item" v-for="hero in filteredHeroes" @click="selectHero(hero)" :key="hero.slug">
         <img :src="cloudinary(hero.image, 512)" :alt="hero.name"/>

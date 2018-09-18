@@ -1,5 +1,5 @@
-process.env.HEROES_API = process.env.HEROES_API || 'https://api.heroes.nuxtjs.org/'
-process.env.GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || '9ded8c99c49ab83cabe8'
+process.env.HEROES_API = process.env.HEROES_API || 'https://api.heroes.nuxtjs.org'
+process.env.GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || '55440d3936ba0961241e'
 
 export default {
   mode: 'universal', // server-side rendering activated

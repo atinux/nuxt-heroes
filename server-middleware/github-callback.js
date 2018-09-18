@@ -17,6 +17,7 @@ module.exports = {
       // Redirect to home
       res.setHeader('Location', '/choose')
     } catch (err) {
+      console.log(err)
       cookies.set('jwt') // Remove jwt cookie
       res.setHeader('Location', '/')
     }

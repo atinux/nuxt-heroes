@@ -1,9 +1,9 @@
 <template>
   <nav class="Tabs">
-    <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': group === 'dc' }" href="#" @click.prevent="group = 'dc'">
+    <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': group === 'dc' }" href="#" @click.prevent="$emit('update:group', 'dc')">
       <img :src="cloudinary('v1524136834/dc.svg', 48)" alt="DC"/>
     </a>
-    <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': group === 'marvel' }" href="#" @click.prevent="group = 'marvel'">
+    <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': group === 'marvel' }" href="#" @click.prevent="$emit('update:group', 'marvel')">
       <img :src="cloudinary('v1524136836/marvel.svg', 48)" alt="Marvel"/>
     </a>
   </nav>

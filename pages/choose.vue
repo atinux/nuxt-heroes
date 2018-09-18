@@ -2,14 +2,6 @@
   <div>
     <h1 class="Title">Choose your Hero</h1>
     <h-tabs :group.sync="group"/>
-    <!-- <nav class="Tabs">
-      <a class="Tabs__Link Tabs__Link--DC" :class="{'Tabs__Link--DC--active': group === 'dc' }" href="#" @click.prevent="group = 'dc'">
-        <img :src="cloudinary('v1524136834/dc.svg', 48)" alt="DC"/>
-      </a>
-      <a class="Tabs__Link Tabs__Link--Marvel" :class="{'Tabs__Link--Marvel--active': group === 'marvel' }" href="#" @click.prevent="group = 'marvel'">
-        <img :src="cloudinary('v1524136836/marvel.svg', 48)" alt="Marvel"/>
-      </a>
-    </nav> -->
     <ul class="List">
       <li class="List__Item" v-for="hero in filteredHeroes" @click="selectHero(hero)" :key="hero.slug">
         <img :src="cloudinary(hero.image, 512)" :alt="hero.name"/>
@@ -19,9 +11,14 @@
 </template>
 
 <script>
+import hTabs from '@/components/tabs'
+
 import { mapState } from 'vuex'
 
 export default {
+  components: {
+    hTabs
+  },
   head: {
     title: 'Choose your hero'
   },
@@ -54,29 +51,6 @@ export default {
 </script>
 
 <style lang="scss">
-.Tabs {
-  display: flex;
-  &__Link {
-    width: 50%;
-    padding: 20px;
-    text-align: center;
-    background-color: #333;
-    &--DC {
-      &:hover, &--active {
-        background-color: #266BB0;
-      }
-    }
-    &--Marvel {
-      &:hover, &--active {
-        background-color: #941112;
-      }
-    }
-    img {
-      height: 48px;
-      display: inline-block;
-    }
-  }
-}
 .List {
   list-style: none;
   display: flex;

@@ -1,3 +1,6 @@
+// import path from 'path'
+// import fs from 'fs'
+
 process.env.HEROES_API = process.env.HEROES_API || 'https://api.heroes.nuxtjs.org'
 process.env.GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || '55440d3936ba0961241e'
 
@@ -34,7 +37,12 @@ export default {
     '~/plugins/auth',
     { src: '~/plugins/sockets', ssr: false }
   ],
-
+  // server: {
+  //   https: {
+  //     key: fs.readFileSync(path.resolve(__dirname, 'ssl/localhost.key')),
+  //     cert: fs.readFileSync(path.resolve(__dirname, 'ssl/localhost.crt'))
+  //   }
+  // },
    /*
   ** Env
   */
@@ -56,11 +64,22 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage.html
+    '@nuxtjs/onesignal',
+    '@nuxtjs/pwa',
     '@nuxtjs/axios'
   ],
   /*
-  ** Axios module configuration
+  ** modules configuration
   */
+  oneSignal: {
+    init: {
+      appId: 'eae41ec3-fe19-4a78-a67c-4bdb312c3c2b',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        disable: true
+      }
+    }
+  },
   axios: {
     // See https://axios.nuxtjs.org/options.html
     proxy: true,
@@ -74,7 +93,11 @@ export default {
       }
     }
   },
-
+  manifest: {
+    name: 'London Heroes',
+    lang: 'en',
+    background_color: "#000"
+  },
   /*
   ** Build configuration
   */

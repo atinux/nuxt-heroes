@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/onesignal": "^2.4.0",
+    "@nuxtjs/pwa": "^2.5.0",
     "cookies": "^0.7.1",
     "nuxt-edge": "^2.0.0-25621351.88c9bae",
     "socket.io-client": "^2.1.0"

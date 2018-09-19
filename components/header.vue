@@ -8,7 +8,7 @@
       <img :src="`${avatar(user.githubId)}?s=24`" :srcset="`${avatar(user.githubId)}?s=48 2x`" width="24" height="24" :alt="user.username"/>
       Logout
     </a>
-    <a v-else :href="oauthUrl">
+    <a v-else :href="`github`">
       Login
     </a>
   </header>
@@ -20,7 +20,6 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapState('auth', ['user']),
-    ...mapGetters(['oauthUrl']),
     ...mapGetters('auth', ['connected'])
   },
   methods: {

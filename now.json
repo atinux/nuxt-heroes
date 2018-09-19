@@ -1,7 +1,0 @@
-{
-  "alias": "heroes.nuxtjs.org",
-  "env": {
-    "GITHUB_CLIENT_ID": "55440d3936ba0961241e",
-    "HEROES_API": "https://api.heroes.nuxtjs.org"
-  }
-}

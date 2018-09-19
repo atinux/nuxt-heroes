@@ -1,7 +1,7 @@
 <template>
   <div>
     <h-hero :hero="hero"/>
-    <h-fans :hero="hero" v-if="hero.nbFans > 0"/>
+    <h-fans :fans="hero.fans" v-if="hero.nbFans > 0"/>
   </div>
 </template>
 

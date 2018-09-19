@@ -11,9 +11,8 @@
 </template>
 
 <script>
-import hTabs from '@/components/tabs'
-
 import { mapState } from 'vuex'
+import hTabs from '@/components/tabs'
 
 export default {
   components: {

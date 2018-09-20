@@ -11,7 +11,7 @@ module.exports = {
     req.query = parse(req.url, true).query
     // Call Api to verify Github OAuth 2.0 code
     try {
-      const { data } = await axios.get(`${process.env.HEROES_API}/github/auth?code=${req.query.code}`)
+      const { data } = await axios.get(`https://api.heroes.nuxtjs.org/github/auth?code=${req.query.code}`)
       // Add JWT cookie
       cookies.set('jwt', data.token, { httpOnly: true })
       // Redirect to home

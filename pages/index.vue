@@ -4,6 +4,7 @@
     <div v-if="connected" class="Choose">
       <nuxt-link to="/choose">{{ user.hero ? 'Change' : 'Choose' }} your hero</nuxt-link>
     </div>
+    <h3 class="SubTitle">{{ totalFans }}</h3>
     <h-statsbar :heroes="heroes"/>
     <h-ranking :heroes="heroes" :user="user"/>
   </div>
@@ -23,7 +24,12 @@ export default {
   computed: {
     ...mapGetters('auth', ['connected']),
     ...mapState('auth', ['user']),
-    ...mapState('heroes', ['heroes'])
+    ...mapState('heroes', ['heroes']),
+    totalFans () {
+      let fans = 0
+      this.heroes.filter((hero) => { fans += hero.nbFans })
+      return fans + ' fan' + (fans > 1 ? 's' : '')
+    }
   }
 }
 </script>

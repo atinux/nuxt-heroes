@@ -43,4 +43,11 @@ html
   color: #fff;
   font-size: 48px;
 }
+.SubTitle {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+  color: #fff;
+  font-size: 24px;
+}
 </style>
